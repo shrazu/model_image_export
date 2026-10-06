@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="image_export_wizard_view_form" model="ir.ui.view">
+        <field name="name">image.export.wizard.form</field>
+        <field name="model">image.export.wizard</field>
+        <field name="arch" type="xml">
+            <form string="Export Images">
+                <group>
+                    <field name="model_id" options="{'no_create': True, 'no_open': True}"/>
+                    <field name="image_field_names" invisible="not model_id or not image_field_names"/>
+                    <field name="target_path" invisible="not model_id or not image_field_names"/>
+                </group>
+                <div class="alert alert-warning" role="alert" invisible="not model_id or image_field_names">
+                    This model has no image field, there is nothing to export.
+                </div>
+                <footer>
+                    <button name="action_export" string="Export" type="object" class="btn-primary"
+                            block-ui="1" data-hotkey="q" invisible="not image_field_names"/>
+                    <button special="cancel" string="Close" data-hotkey="x" class="btn-secondary"/>
+                </footer>
+            </form>
+        </field>
+    </record>
+
+    <record id="image_export_wizard_action" model="ir.actions.act_window">
+        <field name="name">Export Images</field>
+        <field name="res_model">image.export.wizard</field>
+        <field name="view_mode">form</field>
+        <field name="target">new</field>
+    </record>
+</odoo>

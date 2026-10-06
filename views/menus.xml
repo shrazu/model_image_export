@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <menuitem id="menu_image_export" name="Image Export" parent="base.menu_custom" sequence="200">
+        <menuitem id="menu_image_export_wizard" action="image_export_wizard_action" sequence="10"/>
+        <menuitem id="menu_image_export_log" action="image_export_log_action" sequence="20"/>
+    </menuitem>
+</odoo>
